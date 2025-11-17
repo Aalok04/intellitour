@@ -1,0 +1,194 @@
+/* 🌐 Global Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #f7f9fc;
+  color: #333;
+  width: 100%;
+  min-height: 100vh;
+  
+  overflow-x:hidden;
+}
+
+/* Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+}
+
+/* 🌈 Navbar */
+
+
+
+
+/* 🦶 Footer */
+.footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+/* 🏠 Home */
+.home {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #0077ff, #4e54c8);
+  color: white;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.home p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+
+.btn {
+  display: inline-block;
+  background: white;
+  color: #0077ff;
+  padding: 0.9rem 1.7rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* 🗺 Explore */
+.explore {
+  padding: 3rem 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.explore h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.gem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+/* 💎 Gem Card */
+.gem-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.gem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gem-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* 🧑‍💼 Vendor & Guide Pages */
+.vendor-page,
+.guide-page {
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 80vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vendor-page h1,
+.guide-page h1 {
+  color: #0077ff;
+  margin-bottom: 1rem;
+}
+
+/* 📱 RESPONSIVE DESIGN */
+
+/* Tablets and below
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 0.5rem;
+  }
+
+  .home h1 {
+    font-size: 2.2rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+
+  .gem-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* Phones 
+@media (max-width: 600px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .home {
+    padding: 3rem 1rem;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.3rem;
+  }
+
+  .gem-image {
+    height: 160px;
+  }
+
+  .footer {
+    font-size: 0.9rem;
+  }
+} */
