@@ -38,6 +38,9 @@ export default function Explore() {
   ];
 
   return (
+
+
+    
     <div className="explore">
       <h2>Explore Hidden Gems</h2>
       <div className="gem-grid">

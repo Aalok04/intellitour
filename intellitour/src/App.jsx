@@ -55,7 +55,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} /> 
         <Route path="/signup" element={<Signup />} />
         
-<Route path="/explore" element={<Explore />} />
+        <Route path="/explore" element={<Explore />} />
         {/* <Route path="/explore" element={<Explore />} /> */}
         
 
