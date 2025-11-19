@@ -1,5 +1,4 @@
-/* src/pages/Login.css */
-
+/* ===== Global ===== */
 * {
   margin: 0;
   padding: 0;
@@ -7,40 +6,28 @@
   font-family: "Poppins", sans-serif;
 }
 
-
-/* Back Button Styling */
+/* ===== Back Button ===== */
 .back-btn {
-  /* position: absolute;
-  top: 20px;
-  left: 20px;
-  background: transparent;
-  border: none;
-  color: #007bff;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 0.3s ease; */
   position: absolute;
   top: 20px;
   left: 20px;
   background-color: white;
   color: black;
   border: none;
-  padding: 12px;
+  padding: 12px 16px;
   font-size: 1rem;
   font-weight: 600;
   border-radius: 25px;
   cursor: pointer;
   transition: 0.3s;
-
-
+  z-index: 3;
 }
 
 .back-btn:hover {
   color: #0056b3;
 }
 
-
+/* ===== Background Container ===== */
 .login-container {
   background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80")
     center/cover no-repeat;
@@ -59,7 +46,7 @@
   z-index: 1;
 }
 
-/* Login Box */
+/* ===== Login Card ===== */
 .login-card {
   position: relative;
   z-index: 2;
@@ -84,7 +71,7 @@
   margin-bottom: 30px;
 }
 
-/* Form Styling */
+/* ===== Form Styling ===== */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -140,10 +127,81 @@
   text-decoration: underline;
 }
 
-/* Responsive */
+/* ================================
+        RESPONSIVE IMPROVEMENTS
+================================ */
+
+/* Tablets & small laptops (<= 768px) */
+@media (max-width: 768px) {
+  .login-card {
+    width: 80%;
+    padding: 35px;
+  }
+
+  .login-title {
+    font-size: 1.7rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .back-btn {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small phones (<= 480px) */
 @media (max-width: 480px) {
   .login-card {
     width: 90%;
-    padding: 30px;
+    padding: 28px;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .login-form input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .login-btn {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .back-btn {
+    top: 15px;
+    left: 15px;
+    padding: 8px 12px;
+  }
+}
+
+/* Ultra-small devices (<= 360px) */
+@media (max-width: 360px) {
+  .login-card {
+    width: 92%;
+    padding: 22px;
+  }
+
+  .login-title {
+    font-size: 1.3rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .login-btn {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .back-btn {
+    font-size: 0.8rem;
+    padding: 7px 10px;
   }
 }

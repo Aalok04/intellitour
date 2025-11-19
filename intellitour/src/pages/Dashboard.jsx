@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../style/Dashboard.css";
 import "../pages/Explore";
 
-
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  // Read logged-in user data
+  const user = JSON.parse(localStorage.getItem("auth"));
+
+  // Logout function
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    navigate("/login");
+  };
+
+  // Block back button 
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.go(1);
+    };
+  }, []);
+
+  // Redirect if user is not logged in
+  useEffect(() => {
+    if (!user) {
+      navigate("/login", { replace: true });
+    }
+  }, [navigate]);
+
   return (
     <div className="dashboard-page">
       {/* Navbar */}
@@ -19,16 +44,25 @@ const Dashboard = () => {
 
         <ul className="dashboard-nav-links">
           <li className="active">Dashboard</li>
-          <li><Link to="/explore">Explore</Link></li>
+          <Link to="/explore"><li>Explore</li></Link>
           <li>Guide</li>
           <li>Homestay</li>
           <li>About</li>
         </ul>
 
-        <button className="dashboard-sign-in">Sign In</button>
+        {/* User Profile Dropdown */}
+        <div className="profile-container">
+          <div className="profile-icon">
+            {user?.email?.charAt(0).toUpperCase()}
+          </div>
+
+          <div className="profile-dropdown">
+            <p className="profile-email">{user?.email}</p>
+            <button className="logout-btn" onClick={handleLogout}>Logout</button>
+          </div>
+        </div>
       </nav>
 
-      
       <section className="dashboard-hero">
         <div className="dashboard-hero-content">
           <p className="dashboard-subtitle">Welcome Back, Explorer!</p>
@@ -44,7 +78,6 @@ const Dashboard = () => {
         </div>
       </section>
 
-      
       <section className="dashboard-trending">
         <h3>🔥 Trending Now</h3>
         <div className="dashboard-trending-list">
@@ -63,7 +96,6 @@ const Dashboard = () => {
         </div>
       </section>
 
-      
       <section className="dashboard-popular">
         <div className="dashboard-popular-header">
           <h2>Popular Destinations</h2>
