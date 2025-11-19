@@ -40,6 +40,7 @@ import Explore from "./pages/Explore";
 
 
 
+
 function App() {
   return (
     <div>
@@ -56,6 +57,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         
         <Route path="/explore" element={<Explore />} />
+
         {/* <Route path="/explore" element={<Explore />} /> */}
         
 
