@@ -36,39 +36,23 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import Explore from "./pages/Explore";
-
-
-
+import ChatAssistant from "../src/pages/ChatAssistant";
+import ChatIcon from "./components/chatIcon";
 
 
 function App() {
   return (
-    <div>
-      {/* <Explore/>
-       */}
-
-
-
     <Router>
+      <ChatIcon/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} /> 
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/signup" element={<Signup />} />
-        
         <Route path="/explore" element={<Explore />} />
-
-        {/* <Route path="/explore" element={<Explore />} /> */}
-        
-
-
-        {/* You can add more pages later like this: */}
-        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/assistant" element={<ChatAssistant />} />
       </Routes>
     </Router>
-    {/* <Explore/> */}
-    </div>
-
   );
 }
 
