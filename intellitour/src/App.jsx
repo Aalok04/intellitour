@@ -29,32 +29,105 @@
 // export default App;
 
 // src/App.jsx
-import React from "react";
+
+
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Home from "./pages/Home";
+// import Login from "./pages/Login";
+// import Dashboard from "./pages/Dashboard";
+// import Signup from "./pages/Signup";
+// import Explore from "./pages/Explore";
+// import ChatAssistant from "../src/pages/ChatAssistant";
+// import ChatIcon from "./components/chatIcon";
+
+
+// function App() {
+//   return (
+//     <Router>
+//       <ChatIcon/>
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/login" element={<Login />} />
+//         <Route path="/dashboard" element={<Dashboard />} />
+//         <Route path="/signup" element={<Signup />} />
+//         <Route path="/explore" element={<Explore />} />
+//         <Route path="/assistant" element={<ChatAssistant />} />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
+
+ // claude code updated version 
+
+ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import Explore from "./pages/Explore";
-import ChatAssistant from "../src/pages/ChatAssistant";
-import ChatIcon from "./components/chatIcon";
-
+import ChatAssistant from "./components/ChatAssistant"; // ✅ move to components folder
 
 function App() {
   return (
     <Router>
-      <ChatIcon/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/assistant" element={<ChatAssistant />} />
+        {/* ❌ Remove this → <Route path="/assistant" element={<ChatAssistant />} /> */}
       </Routes>
+
+      {/* ✅ Outside Routes — floats over every page */}
+      <ChatAssistant />
     </Router>
   );
 }
 
 export default App;
 
+
+//finalupdated App.jsx with ChatAssistant moved outside of Routes so it appears on every page, and cleaned up imports.
+
+// App.jsx
+
+
+// ye wala code tab ka hai jab history user ke logout hote hi htt rahe the  
+
+
+// import React, { useState } from "react";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Home from "./pages/Home";
+// import Login from "./pages/Login";
+// import Dashboard from "./pages/Dashboard";
+// import Signup from "./pages/Signup";
+// import Explore from "./pages/Explore";
+// import ChatAssistant from "./components/ChatAssistant";
+
+// function App() {
+//   const [userId, setUserId] = useState(null); // ✅ track logged in user
+
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/login" element={<Login setUserId={setUserId} />} />
+//         <Route path="/dashboard" element={<Dashboard setUserId={setUserId} />} />
+//         <Route path="/signup" element={<Signup setUserId={setUserId} />} />
+//         <Route path="/explore" element={<Explore />} />
+//       </Routes>
+
+//       {/* ✅ key prop forces full reset when user changes */}
+//       <ChatAssistant key={userId} userId={userId} />
+//     </Router>
+//   );
+// }
+
+// export default App;

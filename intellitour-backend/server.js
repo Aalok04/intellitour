@@ -7,17 +7,20 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-
+// console.log("CORS enabled and JSON parsing set up");
+const dbUri = "mongodb://aalokparihar6_db_user:3fyed9EdFr4FW9CE@ac-yghjjrb-shard-00-00.9ma5vah.mongodb.net:27017,ac-yghjjrb-shard-00-01.9ma5vah.mongodb.net:27017,ac-yghjjrb-shard-00-02.9ma5vah.mongodb.net:27017/intellitour?ssl=true&replicaSet=atlas-ypxuax-shard-0&authSource=admin&appName=Intellitour";
 mongoose
-  .connect(
-    "mongodb+srv://intellitourAdmin:Aalok1234@intellitour-user.p775kqi.mongodb.net/intellitour?retryWrites=true&w=majority&appName=intellitour-user"
-  )
+  .connect(dbUri)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
 
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 
 app.listen(5000, () => console.log("Server running on port 5000"));
+
+
+
+// aalokparihar6_db_user
+// 3fyed9EdFr4FW9CE

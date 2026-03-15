@@ -92,6 +92,11 @@
 // export default Signup;
 
 
+
+
+
+// This is the updated Signup component that integrates with the backend API for user registration. It includes form validation, error handling, and navigation to the login page upon successful signup.
+
 import React, { useState } from "react";
 import "../style/Signup.css";
 import { useNavigate } from "react-router-dom";
@@ -116,7 +121,7 @@ const Signup = () => {
 
     
     try {
-      const response = await fetch("http://localhost:5000/auth/signup", {
+      const response = await fetch(`http://localhost:5000/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
@@ -200,3 +205,9 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
+
+//updated Signup component with backend integration and form validation
+
+

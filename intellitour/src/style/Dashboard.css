@@ -369,7 +369,7 @@ body {
   padding: 10px 12px;
   border-radius: 8px;
   font-weight: 600;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 0.2s;
 }
 
