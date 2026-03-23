@@ -64,7 +64,7 @@
 
  // claude code updated version 
 
- import React from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -72,21 +72,28 @@ import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import Explore from "./pages/Explore";
 import ChatAssistant from "./components/ChatAssistant"; // ✅ move to components folder
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import GuidePage from "./pages/Guide";
+import HomestayPage from "./pages/Homestay";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/guide" element={<GuidePage />} />
+        <Route path="/homestay" element={<HomestayPage />} />
         {/* ❌ Remove this → <Route path="/assistant" element={<ChatAssistant />} /> */}
       </Routes>
 
       {/* ✅ Outside Routes — floats over every page */}
-      <ChatAssistant />
+      <Footer />
     </Router>
   );
 }
