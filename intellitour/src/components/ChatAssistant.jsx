@@ -503,21 +503,32 @@ const ChatAssistant = () => {
   const auth = JSON.parse(localStorage.getItem("auth"));
   const userName = auth?.name || "Traveler";
 
-  const [messages, setMessages] = useState([
-    {
-      sender: "bot",
-      text: `Hello 👋 Welcome, ${userName}! I'm your Intellitour AI Travel Assistant. Where would you like to travel?`,
-      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    },
-  ]);
+  const [messages, setMessages] = useState(() => {
+    const saved = localStorage.getItem(`chatHistory_${userName}`);
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (err) {
+        console.error("Error parsing chat history:", err);
+      }
+    }
+    return [
+      {
+        sender: "bot",
+        text: `Hello 👋 Welcome, ${userName}! I'm your Intellitour AI Travel Assistant. Where would you like to travel?`,
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      },
+    ];
+  });
 
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
 
   useEffect(() => {
+    localStorage.setItem(`chatHistory_${userName}`, JSON.stringify(messages));
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, userName]);
 
   const handleSend = async () => {
     if (!input.trim() || loading) return;
@@ -532,6 +543,21 @@ const ChatAssistant = () => {
     const currentInput = input;
     setInput("");
     setLoading(true);
+
+    if (!auth || !auth.token) {
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          {
+            sender: "bot",
+            text: "Please log in to use the AI Travel Assistant.",
+            time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+          },
+        ]);
+        setLoading(false);
+      }, 500);
+      return;
+    }
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";

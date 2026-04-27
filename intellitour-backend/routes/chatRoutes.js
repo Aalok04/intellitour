@@ -9,7 +9,7 @@ router.post("/", authMiddleware, async (req, res) => {
   try {
     const { message } = req.body;
 
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const result = await model.generateContent(`
       You are Intellitour AI, a friendly travel assistant.
@@ -19,6 +19,12 @@ router.post("/", authMiddleware, async (req, res) => {
       - Hotel booking advice
       - Hiring local guides
       - Sharing reviews and travel info
+
+      IMPORTANT FORMATTING RULES:
+      - ALWAYS provide responses in a clearly structured format (e.g., bulleted lists, numbered steps).
+      - NEVER use long, unbroken paragraphs.
+      - Keep sentences short, concise, and easy to read.
+      - Use blank lines to separate different points.
 
       User message: ${message}
     `);

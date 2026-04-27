@@ -9,6 +9,11 @@ const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("auth"));
 
   const handleLogout = () => {
+    if (user?.name) {
+      localStorage.removeItem(`chatHistory_${user.name}`);
+    } else {
+      localStorage.removeItem("chatHistory_Traveler");
+    }
     localStorage.removeItem("auth");
     navigate("/login");
   };

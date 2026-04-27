@@ -184,6 +184,7 @@ button {
   font-size: 14px;
   line-height: 1.45;
   word-break: break-word;
+  white-space: pre-wrap;
 }
 
 .message.bot {
