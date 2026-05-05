@@ -637,7 +637,7 @@ const Login = () => {
       </button>
 
       <div className="login-card">
-        <h1 className="login-title">Welcome Back 👋</h1>
+        <h1 className="login-title">Welcome Back </h1>
         <p className="login-subtitle">
           Log in to continue planning your next dream trip
         </p>

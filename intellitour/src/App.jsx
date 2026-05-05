@@ -76,6 +76,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import GuidePage from "./pages/Guide";
 import HomestayPage from "./pages/Homestay";
+import HotelBookingPage from "./pages/Hotelbooking";
+
 
 function App() {
   return (
@@ -89,6 +91,7 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/guide" element={<GuidePage />} />
         <Route path="/homestay" element={<HomestayPage />} />
+        <Route path="/hotelbooking" element={<HotelBookingPage />} />
         {/* ❌ Remove this → <Route path="/assistant" element={<ChatAssistant />} /> */}
       </Routes>
 

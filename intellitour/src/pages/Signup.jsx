@@ -233,12 +233,12 @@ const Signup = () => {
     setError("");
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match ❌");
+      setError("Passwords do not match ");
       return;
     }
 
     if (password.length < 6) {
-      setError("Password must be at least 6 characters ❌");
+      setError("Password must be at least 6 characters ");
       return;
     }
 
@@ -256,7 +256,7 @@ const Signup = () => {
       if (data.success) {
         navigate("/login");
       } else {
-        setError(data.message || "Signup failed 😢");
+        setError(data.message || "Signup failed ");
       }
     } catch (err) {
       console.error(err);
@@ -269,7 +269,7 @@ const Signup = () => {
   return (
     <div className="signup-container">
       <div className="signup-card">
-        <h1 className="signup-title">Create Account ✨</h1>
+        <h1 className="signup-title">Create Account </h1>
         <p className="signup-subtitle">
           Join Intellitour and start planning your dream trips today!
         </p>

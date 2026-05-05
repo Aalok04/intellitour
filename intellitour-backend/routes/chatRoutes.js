@@ -33,6 +33,7 @@ router.post("/", authMiddleware, async (req, res) => {
     res.json({ success: true, reply });
 
   } catch (err) {
+    console.error("Gemini API Error:", err);
     res.status(500).json({ success: false, error: err.message });
   }
 });

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../style/Homestay.css";
 
 // ── Data ──────────────────────────────────────────────────────
@@ -6,47 +7,47 @@ import "../style/Homestay.css";
 const properties = [
     {
         id: 1,
-        title: "Cozy Parisian Apartment",
-        location: "Paris, France",
-        type: "Entire Apartment",
+        title: "Homestay in Pachmarhi, Madhya Pradesh, India",
+        location: "Pachmarhi, Madhya Pradesh, India",
+        type: "Entire Homestay",
         rating: 4.8,
         reviews: 124,
         price: 120,
-        bio: "Charming apartment in the heart of Montmartre with stunning city views.",
-        img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80",
+        bio: "A serene retreat nestled in the lush green landscapes of Pachmarhi.",
+        img: "https://media-cdn.tripadvisor.com/media/photo-s/0e/54/c4/d1/paddy-homestay.jpg",
     },
     {
         id: 2,
-        title: "Traditional Balinese Villa",
-        location: "Ubud, Bali",
+        title: "Homestay in Pachmarhi, Madhya Pradesh, India",
+        location: "Pachmarhi, Madhya Pradesh, India",
         type: "Villa",
         rating: 5,
         reviews: 89,
         price: 95,
         bio: "Authentic Balinese villa surrounded by rice paddies and tropical gardens.",
-        img: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=700&q=80",
+        img: "https://gos3.ibcdn.com/ae7c98ed-2a92-4453-bf44-2c2e6fc8257f.jpeg",
     },
     {
         id: 3,
-        title: "Modern Tokyo Studio",
-        location: "Shibuya, Tokyo",
-        type: "Studio",
+        title: "Homestay in Rudraprayag",
+        location: "Rudraprayag, Uttarakhand, India",
+        type: "Home",
         rating: 4.7,
         reviews: 156,
         price: 85,
-        bio: "Sleek studio in vibrant Shibuya, perfect for exploring Tokyo.",
-        img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80",
+        bio: "Homestay in Rudraprayag, Uttarakhand, India.",
+        img: "https://curlytales.com/wp-content/uploads/2022/06/Untitled-design-2022-06-02T151529.731.jpg",
     },
     {
         id: 4,
-        title: "Santorini Cave Suite",
-        location: "Oia, Santorini",
-        type: "Suite",
+        title: "Suryagrah",
+        location: "Jaisalmer, Rajasthan, India",
+        type: "Royal Suite",
         rating: 4.9,
         reviews: 203,
         price: 210,
-        bio: "Iconic cave suite carved into the cliffside with breathtaking caldera views.",
-        img: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=700&q=80",
+        bio: "Suryagrah, Jaisalmer, Rajasthan, India.",
+        img: "https://fortrajwada.com/images/jaisalmer-suite.png",
     },
     {
         id: 5,
@@ -134,6 +135,7 @@ function HeartIcon({ active }) {
 
 function PropertyCard({ property }) {
     const [liked, setLiked] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <div className="hc">
@@ -177,7 +179,7 @@ function PropertyCard({ property }) {
                         <span className="hc__price-amount">${property.price}</span>
                         <span className="hc__price-label">/night</span>
                     </div>
-                    <button className="hc__book-btn">Book Now</button>
+                    <button className="hc__book-btn" onClick={() => navigate('/hotelbooking')}>Book Now</button>
                 </div>
             </div>
         </div>

@@ -112,7 +112,7 @@ button {
 
 /* Header */
 .chat-header {
-  background: #007bff;
+  background: #096FA2;
   color: white;
   padding: 14px 16px;
   display: flex;
@@ -196,7 +196,7 @@ button {
 }
 
 .message.user {
-  background: #007bff;
+  background: #096FA2;
   color: white;
   align-self: flex-end;
   border-radius: 14px 14px 4px 14px;
@@ -255,7 +255,7 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #007bff;
+  background: #096FA2;
   color: white;
   border: none;
   cursor: pointer;
@@ -267,5 +267,5 @@ button {
   flex-shrink: 0;
 }
 
-.input-area button:hover { background: #0056d6; }
+.input-area button:hover { background: #096FA2; }
 .input-area button:disabled { background: #a0c4ff; cursor: not-allowed; }
