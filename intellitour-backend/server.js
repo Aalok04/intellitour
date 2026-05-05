@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 // console.log("CORS enabled and JSON parsing set up");
-const dbUri = "mongodb://aalokparihar6_db_user:3fyed9EdFr4FW9CE@ac-yghjjrb-shard-00-00.9ma5vah.mongodb.net:27017,ac-yghjjrb-shard-00-01.9ma5vah.mongodb.net:27017,ac-yghjjrb-shard-00-02.9ma5vah.mongodb.net:27017/intellitour?ssl=true&replicaSet=atlas-ypxuax-shard-0&authSource=admin&appName=Intellitour";
+const dbUri=process.env.MONGODB_URI;
 mongoose
   .connect(dbUri)
   .then(() => console.log("MongoDB Connected"))
